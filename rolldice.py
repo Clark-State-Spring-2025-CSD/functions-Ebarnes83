@@ -19,3 +19,24 @@
 # How many sides? 20
 # Here are the results: [18, 19, 6, 8, 13, 6, 6, 6, 18, 12, 20, 10, 14, 8, 14, 17, 12, 15, 20, 17]
 
+import random
+
+def roll_dice(num_dice, num_sides):
+    results = []
+    if num_dice <= 0:
+        return "You need more dice"
+    if num_sides <= 1:
+        return "You need more number of sides"
+    for _ in range(num_dice):
+        results.append(random.randint(1, num_sides))
+    return results
+
+num_dice = int(input("How many dice dice: "))
+num_sides = int(input("How many number of sides per die: "))
+
+dice_rolls = roll_dice(num_dice, num_sides)
+
+if dice_rolls == "You need more dice" or dice_rolls == "You need more number of sides":
+    print(dice_rolls)
+else:
+    print("Dice rolls:", dice_rolls)
